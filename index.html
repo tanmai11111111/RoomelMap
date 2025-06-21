@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoomelMap.com - </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="newcss.css">
+</head>
+<body class="font-sans">
+  <!-- Header -->
+  <header class="bg-blue shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo -->
+     <img src=https://res.cloudinary.com/doiljcevb/image/upload/v1749886119/PD9ncf4_etcygo.png alt="Logo" class="h-10"> <!-- Thay bằng URL logo của bạn -->
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Trang chủ</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Sản phẩm</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Khuyến mãi</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Tin tức</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Liên hệ</a>
+      </nav>
+      <!-- Icons -->
+      <div class="flex items-center space-x-4">
+        <a href="#" class="text-gray-700 hover:text-blue-600">  
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          
+        </a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-gray-700" onclick="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-while shadow-md">
+      <nav class="flex flex-col space-y-2 px-4 py-3">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Trang chủ</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Sản phẩm</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Khuyến mãi</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Tin tức</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Carousel -->
+  <section class="banner-carousel">
+    <div class="banner-inner" id="banner-inner">
+      <div class="banner-item">
+        <img src="https://res.cloudinary.com/doiljcevb/image/upload/v1749886184/3vUm0uB_pnreoa.png" alt="Phòng 1"> <!-- Thay bằng URL trực tiếp từ https://imgur.com/a/YRoaxeV -->
+        <div class="overlay">
+          <h3 class="text-lg font-bold">RoomelMap</h3>
+          <p>Node ở đây</p>
+        </div>
+      </div>
+      <div class="banner-item">
+        <img src="https://res.cloudinary.com/doiljcevb/image/upload/v1749886246/90E394C0-0F93-4A0D-82FD-EA5DB79C18B6_i5u0cu.png" alt="Phòng 2"> <!-- Thay bằng URL trực tiếp từ https://imgur.com/a/Wnp5GYY -->
+        <div class="overlay">
+          <h3 class="text-lg font-bold">RoomelMap</h3>
+          <p>node ở đây</p>
+        </div>
+      </div>
+    </div>
+    <button class="banner-button banner-prev" onclick="moveBannerSlide(-1)">❮</button>
+    <button class="banner-button banner-next" onclick="moveBannerSlide(1)">❯</button>
+  </section>
+
+  <!-- Carousel Giới thiệu sản phẩm -->
+  <section class="container mx-auto px-4 py-8">
+      <h2 class="text-3xl font-bold text-center mb-6"><span class="marquee-text">Giới thiệu sản phẩm</span></h2>
+    <div class="carousel">
+      <div class="carousel-inner" id="carousel-inner">
+        <div class="carousel-item">
+           <img src="https://res.cloudinary.com/doiljcevb/image/upload/v1749886301/9C9A3FE5-B013-4FC1-9E51-01A3AD121B81_aqi2pd.png" alt="Phòng 1"> 
+          <div class="overlay">
+            <h3 class="text-lg font-bold">RoomelMap</h3>
+            <p>Phòng trọ sạch đẹp - giá rẻ - vị trí thuận tiện. Có lạ ở ngay!</p>
+            <button class="bg-blue-600 text-white px-3 py-1 mt-2 rounded" onclick="reloadandnew()" >Khám phá ngay</button>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="ihttps://i.imgur.com/fpBYEBk.png" alt="Phòng 2"> <!-- Thay bằng URL trực tiếp từ https://imgur.com/a/Wnp5GYY -->
+          <div class="overlay">
+            <h3 class="text-lg font-bold">RoomelMap</h3>
+            <p>chung toi có một mái nhà nhỏ cho bạn.</p>
+            <button class="bg-blue-600 text-white px-3 py-1 mt-2 rounded" onclick="reloadandnew()" >
+                khám phá ngay
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-button prev" onclick="moveSlide(-1)">❮</button>
+      <button class="carousel-button next" onclick="moveSlide(1)">❯</button>
+    </div>
+  </section>
+  
+  <!-- Footer (Liên hệ) -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Thông tin công ty -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Về chúng tôi</h3>
+          <p>Team xi trum!</p>
+          <p>Địa chỉ: Đại học FPT, Hà Nội, Việt Nam</p>
+          <p>Email: tanmmhe182262@fpt.edu.vn</p>
+          <p>Hotline: 0855249040</p>
+        </div>
+        <!-- Liên kết nhanh -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Liên kết nhanh</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-300">Chính sách bảo hành</a></li>
+            <li><a href="#" class="hover:text-blue-300">Chính sách đổi trả</a></li>
+            <li><a href="#" class="hover:text-blue-300">Hướng dẫn mua hàng</a></li>
+            <li><a href="#" class="hover:text-blue-300">Câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+        <!-- Liên hệ -->
+         <div class="flex items-center">
+        <img src="https://i.imgur.com/GpSIOUR.png" alt="Logo" class="h-100"> <!-- Thay bằng URL logo của bạn -->
+      </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Liên hệ với chúng tôi</h3>
+          <form>
+            <input type="text" placeholder="Họ và tên" class="w-full p-2 mb-2 bg-gray-700 rounded-md text-white">
+            <input type="email" placeholder="Email" class="w-full p-2 mb-2 bg-gray-700 rounded-md text-white">
+            <textarea placeholder="Nội dung" class="w-full p-2 mb-2 bg-gray-700 rounded-md text-white" rows="4"></textarea>
+            <button class="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Gửi liên hệ</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script> src="script.js"</script>
+  <script src="scriptmenu.js"></script>
+</body>
+</html>

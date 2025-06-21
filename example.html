@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="newcss.css">
+</head>
+<body>
+  <!-- User Info Overlay -->
+  <div id="overlay">
+    <div id="popupForm">
+      <h2>Nhập tên và chọn màu của bạn:</h2>
+      <input type="text" id="userName" placeholder="Tên của bạn">
+      <label>Chọn màu vị trí:</label>
+      <input type="color" id="colorPicker" value="#ff0000">
+      <button onclick="userLocationManager.saveUserInfo()">Lưu</button>
+    </div>
+  </div>
+  <!-- Header -->
+  <div class="header" id="hienthi">
+    <div class="title">
+     <!-- <button class="bg-blue-600 text-white px-3 py-1 mt-2 rounded" onclick="readloadweb1()">⬅</button>-->
+     <img src=https://res.cloudinary.com/doiljcevb/image/upload/v1749886119/PD9ncf4_etcygo.png alt="Logo" class="logo">
+    </div>
+    <div class="search-bar">
+        <button class="filter-btn" onclick="toggleFilterMenu()">
+            <image src="https://res.cloudinary.com/doiljcevb/image/upload/v1749886394/z6694501763469-37abcdc0b278ea084d7fe03483c7bccd_uluqhq.jpg" width="20" height="20"/>
+        </button>
+      <input type="text" id="search-input" id="Hello" placeholder="Tìm nhà trọ...">
+    </div>
+  </div>
+
+  <!-- Main Content -->
+ 
+    <div id="map" id="sidebar2"></div>
+  
+
+  <!-- Footer -->
+  
+      <button id="button-opdiv" onclick="opendiv2()">
+          <div id="div-opdiv"></div>
+      </button>
+            <div id="filterMenu" style="display: none;">
+            <h4>Sắp xếp</h4>
+                <div class="filter-options" >
+                    <select id="sortType" onchange="userLocationManager.updateLocationList()">
+                        <option value="distance">Khoảng cách(km):</option>
+                        <option value="price">Giá tiền(đ):</option>
+                    </select>
+                    <select id="sortOrder" onchange="userLocationManager.updateLocationList()">
+                        <option value="asc" stype="place-items: center;">⬇</option>
+                        <option value="desc"stype="place-items: center;">⬆</option>
+                    </select>
+                </div>
+            </div>
+          <div id="dev22" style="display:block;">
+            <div class="location-list">
+                 <h4>Danh sách trọ</h4>
+                <div id="locationList"></div>
+            </div>
+          </div>
+     
+            <span class="footer-text">Tọa độ bạn đã chọn: <span id="coordinates">Chưa chọn</span></span>
+            <button id="copyBtn">Copy</button>
+            <button onclick="userLocationManager.toggleManualForm()">➕ Thêm Vị Trí Thủ Công</button>
+  <!-- Manual Location Form -->
+  <div id="manualFormPopup" style="display: none;">
+   <div id="addManualForm">
+  <h2>Nhập Vị Trí Thủ Công</h2>
+  
+  <input type="text" id="manualName" required placeholder="Tên nhà trọ">
+
+  <input type="url" id="manualImageUrl" placeholder="Nhập ảnh 1" required>
+  <input type="url" id="manualMapLink" placeholder="Link GoogleMap:" required>
+  <input type="url" id="manualImageUrl1" placeholder="Link ảnh2:" required>
+  <input type="url" id="manualImageUrl2" placeholder="Link ảnh3:" required>
+  <input type="text" id="manualcomment" placeholder="comment" required>
+  <input type="text" id="manualnickname" placeholder="Tên" required>
+  <!--<input type="radio" id="manualVideo" placeholder="Link video" required>-->
+  <div id="row">
+      <div id="col">
+      <input type="number" id="manualLat" step="any" required placeholder="Vĩ độ">      
+      </div>
+      <div id="col">
+        <input type="number" id="manualLng" step="any" required placeholder="Kinh độ">
+      </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col">
+      <label>Biểu tượng:</label>
+      <select id="manualIcon">
+        <option value="🏠">🏠 Nhà Trọ</option>
+        <option value="🏥">🏥 Bệnh viện</option>
+      </select>
+    </div>
+    <div class="col">
+      <label>Màu sắc:</label>
+      <input type="color" id="manualColor" value="#ff0000">
+    </div>
+  </div>
+        <div class="row">
+            <div class="col">
+  <input type="number" id="manualPrice" placeholder="Giá điện(VNĐ)">
+
+            </div>
+   <div class="col">
+  <label>Đánh giá:</label>
+            </div>
+        </div>
+  <div id="manualRating">
+    <span class="star" data-value="1">☆</span>
+    <span class="star" data-value="2">☆</span>
+    <span class="star" data-value="3">☆</span>
+    <span class="star" data-value="4">☆</span>
+    <span class="star" data-value="5">☆</span>
+  </div>
+     
+  <button type="button" onclick="userLocationManager.addManualMarker()">✅ Lưu vị trí</button>
+  <button type="button" onclick="userLocationManager.toggleManualForm()">❌ Hủy</button>
+</div>
+
+    <!-- Edit Manual Location Form -->
+    <div id="editManualForm1" style="display: none;"><!-- off------------------------sửa tên---->
+        <h2>Chỉnh sửa Vị Trí Thủ Công              
+            <button onclick="userLocationManager.toggleManualForm()">X</button></h2>
+      <input type="hidden" id="editManualId">
+      <label>Tên nhà trọ:</label>
+      <input type="text" id="editManualName" required>
+      <label>Link ảnh minh họa:</label>
+      <input type="url" id="editManualImageUrl" placeholder="Nhập ảnh 1" required>
+      <div id="editImagePreview"></div> 
+      <input type="url" id="editManualMapLink" placeholder="Link Map:" required>
+       <input type="url" id="editManualImageUrl1" placeholder="anh2" required>
+       <input type="url" id="editManualImageUrl2" placeholder="anh3" required>
+         <input type="text" id="editManualcomment" placeholder="comment" required>
+  <input type="text" id="editManualnickname" placeholder="Tên" required>
+      <div class="row">
+          <div class="col">
+      <label>Vĩ độ (lat):</label>
+      <input type="number" id="editManualLat" step="any" required>
+          </div>
+          <div class="col">
+      <label>Kinh độ (lng):</label>
+      <input type="number" id="editManualLng" step="any" required>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+      <label>Biểu tượng:</label>
+      <select id="editManualIcon">
+        <option value="🏠">🏠 Nhà</option>
+        <option value="🏥">🏥 Bệnh viện</option>
+      </select>
+          </div>
+          <div class="col">
+      <label>Màu sắc:</label>
+      <input type="color" id="editManualColor" value="#ff0000">
+          </div>
+      </div>
+      <label>Giá Điện (VNĐ):</label>
+      <input type="number" id="editManualPrice">
+      <label>Đánh giá:</label>
+      <div id="editManualRating">
+        <span class="star" data-value="1">☆</span>
+        <span class="star" data-value="2">☆</span>
+        <span class="star" data-value="3">☆</span>
+        <span class="star" data-value="4">☆</span>
+        <span class="star" data-value="5">☆</span>
+      </div>
+      <button type="button" onclick="userLocationManager.saveEditedMarker()">✅ Lưu chỉnh sửa</button>
+    </div>
+  </div>
+      
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+  <script src="scriptmenu.js"></script>
+</body>
+</html>

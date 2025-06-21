@@ -1,0 +1,465 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid black;
+  padding: 10px 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 5px 10px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.search-input {
+  padding: 5px;
+  border: 2px solid black;
+  width: 200px;
+}
+
+/* Content */
+.content {
+  width: 60%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Map */
+#map {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  position: relative;
+}
+
+/* Footer */
+.footer {
+  padding: 10px 20px;
+}
+
+.footer-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+#Xoa {
+  margin-left: 15px;
+  padding: 5px 10px;
+}
+
+/* Overlay and User Info Form */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#popupForm {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#popupForm input,
+#popupForm button {
+  margin: 10px 0;
+}
+
+/* Manual Form Popup */
+#manualFormPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#addManualForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+  width: 100%;
+}
+#editManualForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+  width: 100%;
+}
+
+#addManualForm input,
+#addManualForm select,
+#editManualForm input,
+#editManualForm select,
+#addManualForm button,
+#editManualForm button {
+  padding: 8px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+#manualRating {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+/* Location List */
+.location-list {
+  margin-top: 20px;
+}
+
+.location-list h4 {
+  margin-bottom: 10px;
+}
+
+.location-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-item span {
+  font-size: 14px;
+}
+
+.location-item span:nth-child(2) { /* Price */
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+#sortOrder {
+  margin-bottom: 10px;
+  padding: 6px;
+  width: 100%;
+}
+
+/* Star Rating */
+.star {
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.star.selected {
+  color: gold;
+}
+
+/* Directions Button */
+.directions-btn {
+  padding: 5px 10px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.directions-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Leaflet Popup */
+.leaflet-popup-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-content strong {
+  color: #333;
+}
+
+.leaflet-popup-content img {
+  max-width: 100px;
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+#addManualForm h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#editManualForm h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#addManualForm label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#editManualForm label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#addManualForm input[type="color"] {
+  padding: 2px; /* Color picker không cần padding lớn */
+  height: 40px; /* Đảm bảo chiều cao hợp lý cho color picker */
+}
+#addManualForm select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+#editManualForm input,
+#editManualForm select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#addManualForm button {
+  padding: 8px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+#editManualForm button {
+  padding: 8px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#addManualForm button:hover {
+  background-color: #e0e0e0;
+}
+#editManualForm button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Image Preview */
+#imagePreview,
+#editImagePreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  max-height: 150px;
+  max-width: 400px;
+}
+
+#imagePreview img,
+#editImagePreview img {
+  max-width: none;
+  max-height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Main */
+.main {
+  display: flex;
+  flex: 1;
+  border-bottom: 3px solid black;
+  height: calc(100vh - 60px);
+}
+
+
+
+/* Sidebar2 (Map) */
+#sidebar2 {
+  flex: 1;
+ /* Ensure it doesn't collapse too much */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#divider {
+  height: 10px;
+  cursor: ew-resize;
+  background: gray;
+  position: relative;
+}
+
+#divider:hover {
+  background: #555; /* Slightly darker on hover for feedback */
+}
+#sidebar {
+  width: 40%;
+  min-width: 200px; /* Ensure it doesn't collapse too much */
+  border-right: 3px solid black;
+  padding: 20px;
+  font-weight: bold;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+#filterMenu {
+  background: white;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 45%;
+}
+
+#filterMenu h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-options select {
+  flex: 1; /* giúp 2 select chia đều không gian */
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.logo{
+    width: 50px;
+    height: 30px;
+}
+#hienthi{
+    background-color: buttonface;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+  .location-item span:nth-child(5) {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+  }
+ 
+   #div0 {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      transition: height 0.3s ease;
+      border: 2px solid #444;
+      overflow: hidden;
+    }
+
+    #div1 {
+        background-color: #ffffff;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    #div2 {
+        background-color: #ffffff;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    #button-opdiv{
+        width: 100%;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;         /* canh giữa theo chiều dọc */
+  justify-content: center;     /* canh giữa theo chiều ngang */
+  padding-top: 2px;
+  padding-bottom: 2px;
+  box-sizing: border-box;      /* để padding không làm tăng chiều cao */
+  border: 1px solid #333;
+    }
+    #div-opdiv{
+        height: 16px;              /* 20px - 2*2px margin = 16px */
+  background-color: grey;
+  border-radius: 8px;        /* bo viền thành hình "viên thuốc" */
+  width: 60px;     
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+    }

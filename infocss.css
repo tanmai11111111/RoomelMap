@@ -1,0 +1,357 @@
+/* General styles */
+.body {
+  background-color: #f3f4f6;
+  font-family: sans-serif;
+}
+
+/* Header styles */
+.header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+.nav {
+  margin-top: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Main content styles */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.article-section {
+  width: 66.67%;
+}
+
+.article {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.article:hover {
+  transform: translateY(-5px);
+}
+
+.article-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.date {
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.article-image {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-text {
+  color: #374151;
+  line-height: 1.75;
+}
+
+.article-text + .article-text {
+  margin-top: 1rem;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 33.33%;
+}
+
+.sidebar-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.sidebar-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  text-decoration: underline;
+}
+
+.sidebar-item .date {
+  font-size: 0.875rem;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1rem 0;
+}
+
+.footer-text {
+  text-align: center;
+}
+.profile-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd; /* Màu xám nhạt cho avatar */
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='); /* Placeholder image */
+}
+
+.user-info h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.user-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.status {
+  color: green;
+  font-size: 12px;
+}
+
+.contact-buttons {
+  margin-top: 20px;
+}
+
+.call-btn, .zalo-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.call-btn {
+  background-color: #28a745; /* Màu xanh lá */
+  color: white;
+}
+
+.zalo-btn {
+  background-color: #0078ff; /* Màu xanh Zalo */
+  color: white;
+}
+
+.call-btn:hover, .zalo-btn:hover {
+  opacity: 0.9;
+}
+.video-container {
+  max-width: 80%;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.video-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff0000;
+  color: white;
+  padding: 5px 10px;
+  transform: rotate(-15deg);
+  font-size: 14px;
+}
+
+.video-preview {
+  position: relative;
+  width: 100%;
+}
+
+.video-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.prev-btn, .next-btn, .volume, .more {
+  cursor: pointer;
+}
+
+.thumbnail-list {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  padding: 10px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap; /* Allows items to wrap if there are multiple */
+  gap: 10px;
+}
+
+.thumbnail-item {
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.comment-section {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        .comment-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .comment-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comment-button:hover {
+            background-color: #0056b3;
+        }
+        .comment-list {
+            margin-top: 20px;
+        }
+        .comment-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment-section {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.comment-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#commentInput, #nicknameInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#commentList {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment p {
+    margin: 0;
+    font-size: 0.9em;
+}
+.comment-box {
+  background: #f2f2f2;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+

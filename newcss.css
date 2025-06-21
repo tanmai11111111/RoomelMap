@@ -1,0 +1,108 @@
+.banner-carousel {
+      position: relative;
+      width: 100%;
+     max-width: 1200px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    .banner-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height:100%
+    }
+    .banner-item {
+      flex: 0 0 100%;
+      position: relative;
+      min-width: 100%;
+      box-sizing: border-box; 
+    }
+   .banner-item img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    display: block;
+}
+    .banner-item .overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .banner-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .banner-prev {
+      left: 10px;
+    }
+    .banner-next {
+      right: 10px;
+    }
+    .carousel {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      flex: 0 0 100%;
+      position: relative;
+    }
+    .carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+}
+    .carousel-item .overlay {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+    /* Hiệu ứng chữ chạy cho tiêu đề */
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }

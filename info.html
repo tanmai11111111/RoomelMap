@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin trọ</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="info.js"></script>
+    <script src="scriptmenu.js"></script>
+    <link rel="stylesheet" href="newcss.css">
+</head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f8ff;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .place, .motel {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .place img, .motel img.main-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .info {
+      padding: 15px;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .contact img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .contact-buttons {
+      margin-top: 10px;
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-right: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .call-btn {
+      background-color: #00c853;
+    }
+
+    .zalo-btn {
+      background-color: #1976d2;
+    }
+
+    .video {
+      width: 100%;
+      height: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #ddd;
+    }
+
+    .sub-images {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .sub-images img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  /* Giao diện comment */
+  #commentList {
+    margin-top: 20px;
+  }
+
+  .comment-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #0077cc;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+  }
+
+  .comment-box strong {
+    color: #0077cc;
+    font-size: 15px;
+  }
+
+  .comment-box small {
+    color: gray;
+    font-size: 12px;
+  }
+
+  /* Form nhập bình luận */
+  #nickname,
+  #comment {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  #nickname {
+    max-width: 250px;
+  }
+
+  #comment {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  button[onclick="sendComment()"] {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  button[onclick="sendComment()"]:hover {
+    background-color: #005fa3;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>thông tin trọ từ roomnelMap</h1>
+</header>
+    <main class="main">
+ <div class="header" >
+<div class="container">
+    <div class="info-container"></div>
+    <!--ảnh trọ-->
+      <video class="video" controls>
+        <source src="video.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+      </video>
+            
+      <!-- Bộ ảnh nhỏ -->
+      <div class="sub-images">
+          <div id="link1">
+                 <img id="Hi1"src="" alt="dell có ảnh"></div>
+          <div id="link2">
+              <img id="Hi2" src="" alt="dell có ảnh"></div>
+        <div id="link3"
+             <img id="Hi3" src="" alt="dell có ảnh"></div>
+        <img id="Hi3" src="" alt="ảnh 4">
+      </div>
+  <!-- Mục: Nhà trọ Ngõ Sen -->
+  <div class="motel">
+    <div class="info">
+        
+      <div class="contact">
+        <img src="https://www.vhv.rs/dpng/d/138-1383989_default-svg-icon-free-avatar-png-transparent-png.png" alt="Tao đăng">
+        <div>
+            <strong >
+                <div id="Hi"></div>
+            </strong><span style="color:green;">● Đoán xem</span><br>
+          Đăng từ: 19/06/2025.
+          <div class="contact-buttons">
+            <a class="call-btn" id="sdt" href=""></a>
+            <a class="zalo-btn" href="#">💬 Nhắn Zalo</a>
+          </div>
+        </div>
+      </div>
+        <p><div id ="gianha"></div></p>
+    
+    <div id="diachi"></div>
+      <p><strong>Ngày đăng: </strong> chưa xong</p>
+      <div id="gmail"></div>
+      <p><strong>Tính năng: </strong><div id="node"></div></p>
+    </div>
+      <div>
+          <h1> Danh sách bình luận</h1>
+          <div id="commentList"></div>
+          <input id="nickname" type="text" placeholder="Nickname"/>
+          <textarea id="comment" placeholder="Comment"></textarea>
+          <button onclick="sendComment()">Gửi bình luận</button>
+      </div>
+  </div>
+  
+ </div>
+     </main>
+<footer>
+  &copy; 2025 Trọ Hòa Lạc. Thiết kế bởi TELL WHs.
+</footer>
+</body>
+</html>
