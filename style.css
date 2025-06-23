@@ -2,15 +2,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Switched to Poppins for a modern, rounded typography */
 }
 
+/* Body */
 body {
-  background-color: white;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  /* Subtle gradient background for a modern look */
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -18,448 +21,458 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid black;
-  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  /* Glassmorphism effect with slight transparency */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 12px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Title */
 .title {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  /* Darker blue for a professional yet vibrant look */
+  letter-spacing: 0.5px;
 }
 
+/* Logo */
+.logo {
+  width: 48px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Search Bar */
 .search-bar {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: center;
 }
 
-.filter-btn {
-  padding: 5px 10px;
-  border: 2px solid black;
-  background-color: white;
-  cursor: pointer;
-}
-
-.search-input {
-  padding: 5px;
-  border: 2px solid black;
-  width: 200px;
-}
-
-/* Content */
-.content {
-  width: 60%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  overflow: hidden;
-}
-
-/* Map */
-#map {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  min-height: 450px;
-  position: relative;
-}
-
-/* Footer */
-.footer {
+/* Buttons */
+.filter-btn, .directions-btn, #Xoa, #addManualBtn {
   padding: 10px 20px;
-}
-
-.footer-text {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-
-
-#Xoa {
-  margin-left: 15px;
-  padding: 5px 10px;
-}
-
-/* Overlay and User Info Form */
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-#popupForm {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-#popupForm input,
-#popupForm button {
-  margin: 10px 0;
-}
-
-/* Manual Form Popup */
-#manualFormPopup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  width: 90%;
-  max-width: 400px;
-  max-height: 80vh;
-  overflow-y: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#addManualForm {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  text-align: left;
-  width: 100%;
-}
-#editManualForm {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  text-align: left;
-  width: 100%;
-}
-
-#addManualForm input,
-#addManualForm select,
-#editManualForm input,
-#editManualForm select,
-#addManualForm button,
-#editManualForm button {
-  padding: 8px;
-  border: 2px solid black;
-  background-color: white;
+  border: none;
+  background: linear-gradient(45deg, #f2f2f2, #60a5fa);
+  /* Gradient button */
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-#manualRating {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-/* Location List */
-.location-list {
-  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
-.location-list h4 {
-  margin-bottom: 10px;
+.filter-btn:hover, .directions-btn:hover, #Xoa:hover, #addManualBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
-.location-item {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Search Input */
+.search-input {
+  padding: 10px 16px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  border-radius: 12px;
+  width: 200px;
+  font-size: 0.875rem;
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.7);
+  /* Glassmorphism for input */
+  backdrop-filter: blur(5px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.location-item span {
-  font-size: 14px;
-}
-
-.location-item span:nth-child(2) { /* Price */
-  font-weight: bold;
-  color: #2e7d32;
-}
-
-#sortOrder {
-  margin-bottom: 10px;
-  padding: 6px;
-  width: 100%;
-}
-
-/* Star Rating */
-.star {
-  cursor: pointer;
-  font-size: 20px;
-  color: #ccc;
-}
-
-.star.selected {
-  color: gold;
-}
-
-/* Directions Button */
-.directions-btn {
-  padding: 5px 10px;
-  border: 2px solid black;
-  background-color: white;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.directions-btn:hover {
-  background-color: #e0e0e0;
-}
-
-/* Leaflet Popup */
-.leaflet-popup-content {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.leaflet-popup-content strong {
-  color: #333;
-}
-
-.leaflet-popup-content img {
-  max-width: 100px;
-  margin: 5px;
-  border: 1px solid #ccc;
-}
-#addManualForm h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-#editManualForm h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-#addManualForm label {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-#editManualForm label {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-#addManualForm input[type="color"] {
-  padding: 2px; /* Color picker không cần padding lớn */
-  height: 40px; /* Đảm bảo chiều cao hợp lý cho color picker */
-}
-#addManualForm select {
-  width: 100%;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-#editManualForm input,
-#editManualForm select {
-  width: 100%;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-#addManualForm button {
-  padding: 8px;
-  border: 2px solid black;
-  background-color: white;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-#editManualForm button {
-  padding: 8px;
-  border: 2px solid black;
-  background-color: white;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-#addManualForm button:hover {
-  background-color: #e0e0e0;
-}
-#editManualForm button:hover {
-  background-color: #e0e0e0;
-}
-
-/* Image Preview */
-#imagePreview,
-#editImagePreview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-  max-height: 150px;
-  max-width: 400px;
-}
-
-#imagePreview img,
-#editImagePreview img {
-  max-width: none;
-  max-height: 150px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  object-fit: cover;
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
 
 /* Main */
 .main {
   display: flex;
   flex: 1;
-  border-bottom: 3px solid black;
-  height: calc(100vh - 60px);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 }
 
+/* Sidebar */
+#sidebar {
+  width: 100%;
+  max-width: 420px;
+  /* Slightly wider for better content fit */
+  border-right: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(8px);
+}
 
+/* Filter Menu */
+#filterMenu {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* Sidebar2 (Map) */
+#filterMenu:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+#filterMenu h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+/* Filter Options */
+.filter-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.filter-options select, #sortOrder {
+  padding: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-options select:focus, #sortOrder:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Location List */
+.location-list h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.location-item {
+  padding: 14px;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.location-item span {
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.location-item span:nth-child(2) {
+  font-weight: 600;
+  color: #15803d;
+}
+
+.location-item span:nth-child(5) {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* Map */
 #sidebar2 {
   flex: 1;
- /* Ensure it doesn't collapse too much */
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+/* Divider */
 #divider {
-  height: 10px;
+  width: 8px;
+  background: linear-gradient(180deg, #d1d5db, #9ca3af);
   cursor: ew-resize;
-  background: gray;
-  position: relative;
+  transition: background 0.3s ease;
 }
 
 #divider:hover {
-  background: #555; /* Slightly darker on hover for feedback */
+  background: linear-gradient(180deg, #9ca3af, #6b7280);
 }
-#sidebar {
-  width: 40%;
-  min-width: 200px; /* Ensure it doesn't collapse too much */
-  border-right: 3px solid black;
-  padding: 20px;
-  font-weight: bold;
+
+/* Footer */
+.footer {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* Overlay and Popups */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#popupForm, #manualFormPopup {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  max-height: 85vh;
   overflow-y: auto;
-  box-sizing: border-box;
-}
-#filterMenu {
-  background: white;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  width: 45%;
 }
 
-#filterMenu h4 {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.filter-options {
-  display: flex;
-  gap: 10px;
-}
-
-.filter-options select {
-  flex: 1; /* giúp 2 select chia đều không gian */
-  padding: 5px;
-  border: 2px solid black;
-  border-radius: 5px;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.logo{
-    width: 50px;
-    height: 30px;
-}
-#hienthi{
-    background-color: buttonface;
-}
-.row {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
-.col {
-  flex: 1;
+/* Forms */
+#addManualForm, #editManualForm {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 16px;
 }
 
-  .location-item span:nth-child(5) {
-    display: block;
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 5px;
-  }
- 
-   #div0 {
-      display: flex;
-      flex-direction: column;
-      width: 300px;
-      transition: height 0.3s ease;
-      border: 2px solid #444;
-      overflow: hidden;
-    }
+#addManualForm h2, #editManualForm h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  text-align: center;
+}
 
-    #div1 {
-        background-color: #ffffff;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
+#addManualForm label, #editManualForm label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
 
-    #div2 {
-        background-color: #ffffff;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    #button-opdiv{
-        width: 100%;
-  height: 20px;
-  background-color: #ccc;
-  border-radius: 10px;
+#addManualForm input, #addManualForm select,
+/editManualForm input, #editManualForm select {
+  padding: 10px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#addManualForm input:focus, #addManualForm select:focus,
+#editManualForm input:focus, #editManualForm select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Buttons in Forms */
+#addManualForm button, #editManualForm button {
+  padding: 12px;
+  border: none;
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+#addManualForm button:hover, #editManualForm button:hover {
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+#addManualForm button.cancel, #editManualForm button.cancel {
+  background: linear-gradient(45deg, #ef4444, #f87171);
+}
+
+#addManualForm button.cancel:hover, #editManualForm button.cancel:hover {
+  background: linear-gradient(45deg, #dc2626, #ef4444);
+}
+
+/* Image Preview */
+#imagePreview, #editImagePreview {
   display: flex;
-  align-items: center;         /* canh giữa theo chiều dọc */
-  justify-content: center;     /* canh giữa theo chiều ngang */
-  padding-top: 2px;
-  padding-bottom: 2px;
-  box-sizing: border-box;      /* để padding không làm tăng chiều cao */
-  border: 1px solid #333;
-    }
-    #div-opdiv{
-        height: 16px;              /* 20px - 2*2px margin = 16px */
-  background-color: grey;
-  border-radius: 8px;        /* bo viền thành hình "viên thuốc" */
-  width: 60px;     
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: auto;
-  margin-right: auto;
-    }
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#imagePreview img, #editImagePreview img {
+  max-height: 140px;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+#imagePreview img:hover, #editImagePreview img:hover {
+  transform: scale(1.05);
+}
+
+/* Star Rating */
+#manualRating .star {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #d1d5db;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#manualRating .star:hover, #manualRating .star.selected {
+  color: #facc15;
+  transform: scale(1.2);
+}
+
+/* Collapsible Divs */
+#div0 {
+  width: 100%;
+  max-width: 320px;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+#div1, #div2 {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  transition: all 0.4s ease;
+}
+
+#button-opdiv {
+  width: 100%;
+  height: 28px;
+  background: linear-gradient(45deg, #e5e7eb, #d1d5db);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#button-opdiv:hover {
+  background: linear-gradient(45deg, #d1d5db, #9ca3af);
+}
+
+#div-opdiv {
+  height: 18px;
+  width: 70px;
+  background: #9ca3af;
+  border-radius: 12px;
+  margin: 6px auto;
+}
+
+/* Leaflet Popup */
+.leaflet-popup-content {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+.leaflet-popup-content strong {
+  color: #1e3a8a;
+}
+
+.leaflet-popup-content img {
+  max-width: 100px;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  border-radius: 12px;
+  margin: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  }
+
+  #divider {
+    height: 8px;
+    width: 100%;
+    cursor: ns-resize;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .search-bar {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .filter-options {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    min-height: 280px;
+  }
+
+  #popupForm, #manualFormPopup {
+    width: 95%;
+    max-width: 380px;
+  }
+}
